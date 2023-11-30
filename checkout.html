@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Elektronik</title>
+    <link rel="stylesheet" href="checkout.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="menuKiri">
+          <input type="checkbox" id="input" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menuTengah">
+          <ul id="ul">
+            <li><a href="">Tentang Kami</a></li>
+            <li><a href="">Mitra Kami</a></li>
+            <li><a href="">Mulai Jualan</a></li>
+            <li><a href="">Promo</a></li>
+            <li><a href="">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="judulKanan">
+          <h1 class="judul">Toko<span>Elektronik</span></h1>
+        </div>
+      </div>
+      <div class="hero">
+        <img alt="your" name="slide" />
+      </div>
+      <div class="content cf">
+        <div class="main">
+          <h2>Checkout</h2>
+          <h3>Daftar Produk dalam Keranjang Belanja</h3>
+          <table cellspacing="0">
+            <thead>
+              <tr>
+                <th width="200px" style="text-align: center">Nama Produk</th>
+                <th width="200px" style="text-align: center">Quantity</th>
+                <th width="200px" style="text-align: center">Harga</th>
+                <th width="200px" style="text-align: center">Jumlah Harga</th>
+              </tr>
+            </thead>
+            <tbody id="daftar-keranjang"></tbody>
+            <tbody>
+              <tr>
+                <td style="text-align: right" colspan="3">Total Belanja :</td>
+                <td><span id="total-belanjanya">Rp 0.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <form
+            action="invoice.html"
+            id="formulir-checkout"
+            method="post"
+            autocomplete="of"
+          >
+            <h2>Informasi Pengiriman</h2>
+            <label for="nama"> Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              required
+              autofocus=""
+            /><br />
+
+            <label for="alamat">Alamat Pengiriman:</label>
+            <textarea
+              name="alamat"
+              id="alamat"
+              cols="40"
+              rows="3"
+              required
+            ></textarea
+            ><br />
+
+            <label for="rt">RT/RW</label>
+            <input type="number" id="rt" name="rt" required />
+            <input type="number" id="rw" name="rw" required /><br />
+
+            <label for="desa">Desa:</label>
+            <input type="text" id="desa" name="desa" required /><br />
+            <label for="kecamatan">Kecamatan:</label>
+            <input type="text" id="kecamatan" name="kecamatan" required /><br />
+
+            <label for="kota">Kota:</label>
+            <input type="text" id="kota" name="kota" required /><br />
+
+            <label for="kode-pos">Kode Pos:</label>
+            <input type="number" id="kode-pos" name="kode-pos" required /><br />
+
+            <label for="ongkir">Ongkos Kirim:</label>
+            <input type="number" id="ongkir" name="ongkir" required /><br />
+
+            <h2>Informasi Kontak</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required /><br />
+
+            <label for="telepon">Nomor Telepon:</label>
+            <input type="tel" id="telepon" name="telepon" required /><br />
+
+            <h2>Informasi Pembayaran (Rekening Bank)</h2>
+            <p>
+              Segera selesaikan proses pembelian, dengan cara melakukan transfer
+              sesuai jumlah yang tertera pada Total Belanja di atas ke nomor
+              rekening Toko Rieda
+            </p>
+
+            <label for="bank">Bank:</label>
+            <select name="bank" id="bank" required>
+              <option value="bca">BCA (Bank Cenral Asia)</option>
+              <option value="bni">BNI (Bank Nasional Indonesia)</option>
+              <option value="mandiri">Bank Mandiri</option>
+              <option value="bri">BRI (Bank Rakyat Indonesia)</option></select
+            ><br />
+
+            <label for="nomor-rekening">Nomor Rekening:</label>
+            <input
+              type="number"
+              id="nomor-rekening"
+              name="nomor-rekening"
+              required
+            /><br />
+
+            <label for="nama-rekening">Nama Pemegang Rekening:</label>
+            <input
+              type="text"
+              id="nama-rekening"
+              name="nama-rekening"
+              required
+            /><br />
+
+            <label for="cabang">Cabang Bank (opsional):</label>
+            <input type="text" id="cabang" name="cabang" /> <br />
+
+            <button id="selesaikan-pembayaran" onclick="selesaikanPembayaran()">
+              Selesaikan Pembayaran
+            </button>
+          </form>
+        </div>
+        <div class="sidebar">
+          <br /><br />
+          <div class="keranjang">
+            <h3>Keranjang Belanja</h3>
+            <ul id="daftar-keranjang-belanja"></ul>
+            <p>Total Belanja <span id="total-belanja">Rp 0.00</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="nfo">
+          <p>copyright 2023© Toko Elektronik</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+      const ul = document.getElementById("ul");
+      input.addEventListener("click", function () {
+        ul.classList.toggle("lihat");
+      });
+
+      var i = 0;
+      var images = [];
+      var time = 1500;
+
+      images[0] = "1.jpg";
+      images[1] = "2.jpg";
+      images[2] = "3.jpg";
+
+      function changeImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+        setTimeout(changeImage, time);
+      }
+      window.onload = changeImage;
+
+      const keranjangBelanja = JSON.parse(
+        sessionStorage.getItem("keranjangBelanja")
+      );
+      const daftarKeranjang = document.getElementById("daftar-keranjang");
+      const totalBelanjanya = document.getElementById("total-belanjanya");
+      let totalBelanja = 0;
+
+      keranjangBelanja.forEach((produk) => {
+        const itemProduk = document.createElement("tr");
+        const jum = produk.jumlah * produk.harga;
+        itemProduk.innerHTML = `
+                        <td>${produk.nama}</td>
+                        <td>${produk.jumlah}</td>
+                        <td>${produk.harga.toLocaleString("id-ID")}</td>
+                        <td>${jum.toLocaleString("id-ID")}</td>
+                        `;
+        daftarKeranjang.appendChild(itemProduk);
+        totalBelanja += produk.jumlah * produk.harga;
+      });
+      totalBelanjanya.textContent = `${totalBelanja.toLocaleString("id-ID")}`;
+
+      const daftarKeranjangBelanja = document.getElementById(
+        "daftar-keranjang-belanja"
+      );
+      const totalbelanjaElem = document.getElementById("total-belanja");
+      daftarKeranjangBelanja.innerHTML = "";
+      let total = 0;
+
+      keranjangBelanja.forEach((produk) => {
+        const item = document.createElement("li");
+        item.textContent = `${produk.nama} - ${produk.harga.toLocaleString(
+          "id-ID"
+        )} - ${produk.jumlah}`;
+        daftarKeranjangBelanja.appendChild(item);
+        total += produk.jumlah * produk.harga;
+      });
+
+      totalbelanjaElem.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+
+      function selesaikanPembayaran() {
+        const namaPelanggan = document.getElementById("nama").value;
+        const alamat = document.getElementById("alamat").value;
+        const rt = document.getElementById("rt").value;
+        const rw = document.getElementById("rw").value;
+        const desa = document.getElementById("desa").value;
+        const kecamatan = document.getElementById("kecamatan").value;
+        const kota = document.getElementById("kota").value;
+        const kodepos = document.getElementById("kode-pos").value;
+        const ongkir = document.getElementById("ongkir").value;
+        const email = document.getElementById("email").value;
+        const telepon = document.getElementById("telepon").value;
+        const bank = document.getElementById("bank").value;
+        const norek = document.getElementById("nomor-rekening").value;
+        const namaRekening = document.getElementById("nama-rekening").value;
+        const cabang = document.getElementById("cabang").value;
+
+        sessionStorage.setItem("namaPelanggan", JSON.stringify(namaPelanggan));
+        sessionStorage.setItem(
+          "alamatPengirim",
+          JSON.stringify(
+            alamat +
+              " Rt: " +
+              rt +
+              " Rw: " +
+              rw +
+              " Desa: " +
+              desa +
+              " Kecamatan: " +
+              kecamatan +
+              " Kota/Kab: " +
+              kota +
+              " Kodepos: " +
+              kodepos
+          )
+        );
+        sessionStorage.setItem("email", JSON.stringify(email));
+        sessionStorage.setItem("telepon", JSON.stringify(telepon));
+        sessionStorage.setItem("ongkir", JSON.stringify(ongkir));
+        sessionStorage.setItem("bank", JSON.stringify(bank));
+        sessionStorage.setItem("namaRekening", JSON.stringify(namaRekening));
+        sessionStorage.setItem("cabang", JSON.stringify(cabang));
+        sessionStorage.setItem("norek", JSON.stringify(norek));
+        sessionStorage.setItem("nomor-rekening", JSON.stringify(namaRekening));
+      }
+    </script>
+  </body>
+</html>

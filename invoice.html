@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Elektronik</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      @font-face /*perintah untuk memanggil font eksternal*/ {
+        font-family: "Nexa"; /*memberikan nama bebas untuk font*/
+        src: url("FerroRosso.ttf"); /*memanggil file font eksternalnya di folder nexa*/
+      }
+      @font-face /*perintah untuk memanggil font eksternal*/ {
+        font-family: "Roboto"; /*memberikan nama bebas untuk font*/
+        src: url("Roboto-Black.ttf"); /*memanggil file font eksternalnya di folder nexa*/
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .header {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        background-color: black;
+        box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 888;
+      }
+      .menuKiri {
+        height: 20px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+      }
+      .menuKiri span {
+        background-color: white;
+        display: block;
+        height: 3px;
+        width: 28px;
+        transition: 0.5s;
+      }
+      .menuKiri input {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 15px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 99;
+      }
+      .menuKiri span:nth-child(2) {
+        transform-origin: 0 0;
+      }
+      .menuKiri input:checked ~ span:nth-child(2) {
+        transform: rotate(45deg) translate(-1px, -1px);
+      }
+      .menuKiri span:nth-child(4) {
+        transform-origin: 0 100%;
+      }
+      .menuKiri input:checked ~ span:nth-child(4) {
+        transform: rotate(-45deg) translate(-1px, 0);
+      }
+      .menuKiri input:checked ~ span:nth-child(3) {
+        transform: scale(0);
+        opacity: 0;
+      }
+      .menuTengah {
+        width: 100%;
+      }
+      .menuTengah ul {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        z-index: 999;
+      }
+      .menuTengah ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: "Roboto";
+      }
+      .judulKanan {
+        background-color: transparent;
+        color: white;
+        font-family: "Nexa";
+      }
+      .judulKanan span {
+        color: Salmon;
+      }
+      .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .main-invoice {
+        width: 350px;
+        padding: 20px;
+        box-sizing: border-box;
+        float: left;
+        font-size: 14px;
+        background-color: #ddd;
+      }
+      .main-invoice h2 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .main-invoice h3 {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      .main-invoice button {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .main-invoice button:hover {
+        background-color: #cf7878;
+        color: #333;
+      }
+
+      .datapem td {
+        color: black;
+        line-height: 17px;
+      }
+      .datapem tr td span {
+        color: black;
+      }
+      .footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: black;
+      }
+      .nfo {
+        width: 100%;
+        text-align: center;
+      }
+      .nfo p {
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        text-transform: uppercase;
+        font-family: "Poppins";
+      }
+      .mfo {
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (max-width: 1980px) {
+        .main-invoice {
+          width: 600px;
+        }
+      }
+      @media (max-width: 1280px) {
+        .menuTengah ul {
+          width: 100%;
+          justify-content: space-evenly;
+        }
+        .judulKanan {
+          width: 300px;
+        }
+        .hero {
+          height: 450px;
+        }
+      }
+      @media (max-width: 600px) {
+        .judulKanan h1 {
+          font-size: 25px;
+        }
+        .menuKiri {
+          display: flex;
+          z-index: 9999999;
+        }
+        .menuTengah {
+          width: 100%;
+          background-color: gray;
+        }
+        .menuTengah ul {
+          background-color: black;
+          box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+          width: 80%;
+          height: 100vh;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateX(-100%);
+          transition: 0.5s;
+        }
+        .menuTengah ul.lihat {
+          transform: translateX(0);
+        }
+        .hero {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="menuKiri">
+          <input type="checkbox" id="input" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menuTengah">
+          <ul id="ul">
+            <li><a href="">Tentang Kami</a></li>
+            <li><a href="">Mitra Kami</a></li>
+            <li><a href="">Mulai Jualan</a></li>
+            <li><a href="">Promo</a></li>
+            <li><a href="">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="judulKanan">
+          <h1 class="judul">Toko<span>Elektronik</span></h1>
+        </div>
+      </div>
+      <div class="content cf" id="cetakke">
+        <div class="main-invoice">
+          <h2>Invoice Pembayaran</h2>
+          <br />
+
+          <h3>Informasi Pengiriman</h3>
+          <table class="datapem">
+            <tr>
+              <td width="150px">Nama Pelanggan</td>
+              <td>:</td>
+              <td width="450px"><span id="invoice-nama"></span></td>
+            </tr>
+            <tr>
+              <td>Alamat</td>
+              <td>:</td>
+              <td><span id="invoice-alamat"></span></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>:</td>
+              <td><span id="invoice-email"></span></td>
+            </tr>
+            <tr>
+              <td>No. Telepon</td>
+              <td>:</td>
+              <td><span id="invoice-telepon"></span></td>
+            </tr>
+          </table>
+          <br />
+
+          <h3>Data Pembayaran</h3>
+          <table class="datapem">
+            <tr>
+              <td width="150px">Nama Lengkap</td>
+              <td>:</td>
+              <td width="450px"><span id="invoice-pengirim"></span></td>
+            </tr>
+            <tr>
+              <td>Nomor Rekening</td>
+              <td>:</td>
+              <td><span id="invoice-rek"></span></td>
+            </tr>
+            <tr>
+              <td>Bank</td>
+              <td>:</td>
+              <td>
+                <span id="invoice-bank"
+                  >Kantor Cabang: <span id="invoice-cabang"></span
+                ></span>
+              </td>
+            </tr>
+          </table>
+          <br />
+
+          <h3>Rincian Pembelian</h3>
+          <table>
+            <thead>
+              <tr>
+                <th width="200px" style="text-align: center">Nama Produk</th>
+                <th width="20px" style="text-align: center">Quantity</th>
+                <th width="20px" style="text-align: center">Harga</th>
+                <th width="150px" style="text-align: center">Jumlah Harga</th>
+              </tr>
+            </thead>
+            <tbody id="daftar-keranjang"></tbody>
+            <tbody>
+              <tr>
+                <td>Total Belanja</td>
+                <td><span id="total-belanja">Rp 0.00</span></td>
+              </tr>
+              <tr>
+                <td style="text-align: left" colspan="3">Ongkos Kirim</td>
+                <td style="text-align: right">
+                  <span id="invoice-ongkir"></span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left" colspan="3">Total Pembayaran</td>
+                <td style="text-align: right">
+                  <span id="invoice-total"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h3>Informasi Pembayaran (Rekening Bank)</h3>
+          <p>
+            silakan transfer sejumlah Total Pembayaran (<span
+              id="total-bayar"
+            ></span
+            >) ke nomor rekening berikut:
+          </p>
+          <ul>
+            <li><span id="invoice-rekening"></span></li>
+          </ul>
+          <p>Kantor Cabang : <span id="invoice-cabang"></span></p>
+          <br />
+
+          <button onclick="cetakInvoice('cetakke')">Cetak Invoice</button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="nfo">
+          <p>copyright 2023© Toko Elektronik</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+      const ul = document.getElementById("ul");
+
+      input.addEventListener("click", function () {
+        ul.classList.toggle("lihat");
+      });
+      const namaPelanggan = JSON.parse(sessionStorage.getItem("namaPelanggan"));
+      console.log(namaPelanggan);
+      const alamatPengiriman = JSON.parse(
+        sessionStorage.getItem("alamatPengirim")
+      );
+      const email = JSON.parse(sessionStorage.getItem("email"));
+      const telepon = JSON.parse(sessionStorage.getItem("telepon"));
+      let ongkir = JSON.parse(sessionStorage.getItem("ongkir"));
+      const bank = JSON.parse(sessionStorage.getItem("bank"));
+
+      let rekeningInfo;
+      let namaBank;
+
+      switch (bank) {
+        case "bca":
+          namaBank = "bank BCA";
+          rekeningInfo = "Bank BCA 238 080 156 4";
+          break;
+        case "bni":
+          namaBank = "Bank BNI";
+          rekeningInfo = "Bank BNI 9871 2776 143";
+          break;
+        case "mandiri":
+          namaBank = "Bank Mandiri";
+          rekeningInfo = "Bank Mandiri : 231 412 138 753 2";
+          break;
+        case "bri":
+          namaBank = "Bank BRI";
+          rekeningInfo = "Bank BRI: 0069-01-876521-56-8";
+          break;
+        default:
+          namaBank = "Lainnya";
+          rekeningInfo = "Bank Lain : Nomor Rekening Lain";
+      }
+
+      const norek = JSON.parse(sessionStorage.getItem("norek"));
+      const namaRekening = JSON.parse(sessionStorage.getItem("namaRekening"));
+      const cabang = JSON.parse(sessionStorage.getItem("cabang"));
+      // Menampilkan data di elemen HTML
+
+      document.getElementById("invoice-nama").textContent = namaPelanggan;
+      document.getElementById("invoice-alamat").textContent = alamatPengiriman;
+      document.getElementById("invoice-email").textContent = email;
+      document.getElementById("invoice-telepon").textContent = telepon;
+      document.getElementById("invoice-rekening").textContent = rekeningInfo;
+      document.getElementById("invoice-bank").textContent = namaBank;
+      document.getElementById("invoice-rek").textContent = norek;
+      document.getElementById("invoice-pengirim").textContent = namaRekening;
+      document.getElementById("invoice-cabang").textContent = cabang;
+      document.getElementById(
+        "invoice-ongkir"
+      ).textContent = `${ongkir.toLocaleString("id-ID")}`;
+      // Menampilkan Produk dari Keranjang Belanja
+      // Ambil daftar belanja dari Session Storage
+      const keranjangBelanja = JSON.parse(
+        sessionStorage.getItem("keranjangBelanja")
+      );
+
+      // Tampilkan daftar belanja pada halaman
+      const daftarKeranjang = document.getElementById("daftar-keranjang");
+      const totalBelanjanya = document.getElementById("total-belanja");
+      let totalBelanja = 0;
+
+      keranjangBelanja.forEach((produk) => {
+        const itemProduk = document.createElement("tr");
+        const jumlahSemua = produk.jumlah * produk.harga;
+        itemProduk.innerHTML = `
+<td>${produk.nama}</td>
+<td>${produk.jumlah}</td>
+<td>Rp${produk.harga.toLocaleString("id-ID")}</td>
+<td>Rp${jumlahSemua.toLocaleString("id-ID")}</td>`;
+
+        daftarKeranjang.appendChild(itemProduk);
+        totalBelanja += produk.jumlah * produk.harga;
+      });
+
+      totalBelanjanya.textContent = `${totalBelanja.toLocaleString("id-ID")}`;
+      const totalBayar = totalBelanja + Number(ongkir);
+
+      console.log(typeof Number(ongkir));
+      console.log(typeof totalBelanja);
+      console.log(typeof totalBayar);
+
+      document.getElementById(
+        "invoice-total"
+      ).textContent = `${totalBayar.toLocaleString("id-ID")}`;
+      document.getElementById(
+        "total-bayar"
+      ).textContent = `${totalBayar.toLocaleString("id-ID")}`;
+
+      function cetakInvoice(cetakke) {
+        var printContents = document.getElementById("cetakke").innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+      }
+    </script>
+  </body>
+</html>

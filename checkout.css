@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@font-face /*perintah untuk memanggil font eksternal*/
+
+{
+  font-family: 'Nexa'; /*memberikan nama bebas untuk font*/
+  src: url('FerroRosso.ttf');/*memanggil file font eksternalnya di folder nexa*/
+}
+@font-face /*perintah untuk memanggil font eksternal*/
+{
+  font-family: 'Roboto'; /*memberikan nama bebas untuk font*/
+  src: url('Roboto-Black.ttf');/*memanggil file font eksternalnya di folder nexa*/
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.header {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  background-color: black;
+  box-shadow: 0 5px 15px rgb(0,0,0,0.5);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 888;
+}
+.menuKiri {
+  height: 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.menuKiri span {
+  background-color: white;
+  display: block;
+  height: 3px;
+  width: 28px;
+  transition: .5s;
+}
+.menuKiri input {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 15px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 99;
+}
+.menuKiri span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menuKiri input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menuKiri span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+.menuKiri input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menuKiri input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+.menuTengah {
+  width: 100%;
+}
+.menuTengah ul {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  z-index: 999;
+}
+.menuTengah ul li a {
+  text-decoration: none;
+  color: white;
+}
+.judulKanan {
+  background-color: transparent;
+  color: red;
+  font-family: 'Nexa';
+}
+.judulKanan span {
+  color: Salmon;
+}
+.hero {
+  width: 100%;
+  background-color: Salmon;
+  background-size: cover;
+  background-position: center;
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: black;
+}
+.nfo {
+  width: 100%;
+  text-align: center;
+}
+.nfo p {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Poppins';
+}
+.mfo {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main {
+  width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: 'Poppins';
+  gap: 10px;
+}
+.main table{
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+table thead tr th{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #2872ff;
+  color: white;
+}
+table tbody tr td{
+  border: 1px solid black;
+  padding: 10px;
+}
+table tbody tr:nth-child(even){
+ background-color: #ddd;
+}
+.main form{
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 10px;
+}
+.main form input{
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0;
+  padding: 10px;
+}
+.sidebar{
+  padding: 10px;
+  box-sizing: border-box;
+}
+#daftar-keranjang-belanja{
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+#daftar-keranjang-belanja li{
+  list-style-type: none;
+  background-color: black;
+  box-shadow: 0 4px 8px rgb(0,0,0,0.7);
+  border: 2px solid rgb(0,0,0,0.5);
+  margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: bold;
+  color: white;
+}
+form button{
+  border: 1px solid black;
+  border-radius: 0;
+  padding: 10px;
+  background-color: #2872ff;
+}
+form button:hover{
+  background-color: #659aff;
+}
+@media(max-width: 1980px){
+  .hero{
+    height: 500px;
+  }
+}
+@media(max-width: 1280px) {
+  .menuTengah ul {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .judulKanan {
+    width: 300px;
+  }
+  .hero {
+    height: 300px;
+  }
+}
+@media(max-width: 600px) {
+  .judulKanan h1 {
+    font-size: 20px;
+  }
+  .menuKiri {
+    display: flex;
+    z-index: 9999999;
+  }
+  .menuTengah {
+    width: 100%;
+    background-color: gray;
+  }
+  .menuTengah ul {
+    background-color: black;
+    box-shadow: 0 5px 15px rgb(0,0,0,0.5);
+    width: 80%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: .5s;
+  }
+  .menuTengah ul.lihat {
+    transform: translateX(0);
+  }
+  .hero {
+    height: 200px;
+  }
+  .main{
+    order: 2;
+    justify-content: center;
+  }
+  .sidebar{
+    order: 1;
+  }
+}

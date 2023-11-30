@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Elektronik</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="menuKiri">
+          <input type="checkbox" id="input" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menuTengah">
+          <ul id="ul">
+            <li><a href="">Tentang Kami</a></li>
+            <li><a href="">Mitra Kami</a></li>
+            <li><a href="">Mulai Jualan</a></li>
+            <li><a href="">Promo</a></li>
+            <li><a href="">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="judulKanan">
+          <h1 class="judul">Toko<span>Elektronik</span></h1>
+        </div>
+      </div>
+      <div class="hero">
+        <img alt="your" name="slide" />
+      </div>
+      <div class="content cf">
+        <div class="main">
+          <section class="product" data-kategori="hp">
+            <img src="samsungGalaxyS23Ultra.png" alt="Produk 1" />
+            <h3>Samsung Galaxy S23 ULtra</h3>
+            <p>Handphone dengan teknologi canggih</p>
+            <p class="price">Harga: Rp 21.600.000</p>
+            <div class="tmk">
+              <div class="tombol-buy">
+                <button
+                class="tombol-beli"
+                onclick="tampilkanDetailProduk ('samsungGalaxyS23Ultra', 'Rp 21.600.000', 'Headphone murah dan berkualitas menghasilkan suara yang jernih dan nyaman dipakai', 'samsungGalaxyS23Ultra.png')"
+              ><img src="trolley.png" alt="y"></button>
+              </div>
+              ><br />
+              <button
+                class="tombol-keranjang"
+                onclick="tambahkanProdukKeKeranjang('Samsung Galaxy S23 Ultra', 21600000)"
+              ><img src="shopping-cart.png" alt=""></button
+              ><br />
+            </div>
+          </section>
+
+          <section class="product" data-kategori="hp">
+            <img src="realme10Pro5g.png" alt="Produk 2" />
+            <h3>Realme 10Pro</h3>
+            <p>Handphone dengan teknologi canggih</p>
+            <p class="price">Harga: Rp 5.000.000</p>
+            <div class="tmk">
+                <div class="tombol-buy">
+                  <button
+                  class="tombol-beli"
+                  onclick="tampilkanDetailProduk ('Realme 10Pro 5G', 'Rp 5.000.000', 'Dengan teknologi 5g dan fitur fitur lainya handphone ini cocok untuk anda yang memiliki budget sedang', 'realme10Pro5g.png')"><img src="trolley.png" alt="y"></button>
+                </div>
+                ><br />
+                <button
+                  class="tombol-keranjang"
+                  onclick="tambahkanProdukKeKeranjang('Realme 10Pro 5G', 5000000)"
+                ><img src="shopping-cart.png" alt=""></button
+                ><br />
+              </div>
+          </section>
+
+          <section class="product" data-kategori="hp">
+            <img src="produk3.png" alt="Produk 3" />
+            <h3>Poco M3</h3>
+            <p>Handphone dengan teknologi canggih</p>
+            <p class="price">Harga: Rp 2.700.000</p>
+            <div class="tmk">
+                <div class="tombol-buy">
+                  <button
+                  class="tombol-beli"
+                  onclick="tampilkanDetailProduk ('Poco M3', 'Rp 2.700.000', 'M series merupakan seri smartphone kelas entry dari POCO, termasuk M3. Smartphone ini masih dibekali spesifikasi untuk pengoperasian sederhana, seperti chipset Snapdragon 662. Namun, chipset tersebut sudah mencukupi untuk gaming.', 'produk3.png')"><img src="trolley.png" alt="y"></button>
+                </div>
+                ><br />
+                <button
+                  class="tombol-keranjang"
+                  onclick="tambahkanProdukKeKeranjang('Poco M3', 2700000)"
+                ><img src="shopping-cart.png" alt=""></button
+                ><br />
+              </div>
+          </section>
+
+          <section class="product" data-kategori="laptop">
+            <img src="produk4.png" alt="Produk 4" />
+            <h3>MacBook Air M2</h3>
+            <p>Laptop murah dengan kualitas mumpuni</p>
+            <p class="price">Harga: Rp 14.500.000</p>
+            <div class="tmk">
+                <div class="tombol-buy">
+                  <button
+                  class="tombol-beli"
+                  onclick="tampilkanDetailProduk ('MacBook Air M2', 'Rp 14.500.000', 'Layar Liquid Retina 13,6 inci yang mengagumkan mendukung 1 miliar warna. Semua hal yang Anda lakukan terlihat cemerlang, dengan detail yang tajam.', 'produk4.png')"><img src="trolley.png" alt="y"></button>
+                </div>
+                ><br />
+                <button
+                  class="tombol-keranjang"
+                  onclick="tambahkanProdukKeKeranjang('MacBook Air M2', 14500000)"
+                ><img src="shopping-cart.png" alt=""></button
+                ><br />
+              </div>
+          </section>
+
+          <section class="product" data-kategori="laptop">
+            <img src="produk5.png" alt="Produk 5" />
+            <h3>MacBook Air</h3>
+            <p>Laptop murah dengan kualitas mumpuni</p>
+            <p class="price">Harga: Rp 12.50.000</p>
+            <div class="tmk">
+                <div class="tombol-buy">
+                  <button
+                  class="tombol-beli"
+                  onclick="tampilkanDetailProduk ('MacBook Air', 'Rp 12.500.000', 'Desain menawan yang disuguhkan oleh MacBook Air New tidak menghilangkan performa maksimal yang Anda butuhkan untuk menyelesaikan beragam jenis pekerjaan.', 'produk5.png')"><img src="trolley.png" alt="y"></button>
+                </div>
+                ><br />
+                <button
+                  class="tombol-keranjang"
+                  onclick="tambahkanProdukKeKeranjang('MacBook Air', 12500000)"
+                ><img src="shopping-cart.png" alt=""></button
+                ><br />
+              </div>
+          </section>
+        </div>
+        <div class="sidebar">
+          <h3>Kategori</h3>
+          <div class="kategori-pilihan">
+            <div class="input">
+              <input
+                type="text"
+                id="cariBarang"
+                placeholder="Cari Barang...."
+                onkeyup="cariBarang()"
+              />
+            </div>
+            <div class="filter">
+              <button onclick="filterKategori('all')">Semua</button>
+              <button onclick="filterKategori('hp')">Handphone</button>
+              <button onclick="filterKategori('laptop')">Laptop</button>
+            </div>
+          </div>
+          <div class="keranjang">
+            <h3>Keranjang Belanja</h3>
+            <ul id="daftar-keranjang"></ul>
+            <p>Total Belanja <span id="total-belanja">Rp 0</span></p>
+            <button alt="checkout.html" id="checkout" onclick="checkout() ">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="nfo">
+          <p>copyright 2023© Toko Elektronik</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const input = document.getElementById("input");
+      const ul = document.getElementById("ul");
+
+      input.addEventListener("click", function () {
+        ul.classList.toggle("lihat");
+      });
+
+      var i = 0;
+      var images = [];
+      var time = 1500;
+
+      images[0] = "1.jpg";
+      images[1] = "2.jpg";
+      images[2] = "3.jpg";
+
+      function changeImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+        setTimeout(changeImage, time);
+      }
+      window.onload = changeImage;
+      function tampilkanDetailProduk(
+        namaProduk,
+        hargaProduk,
+        detailProduk,
+        gambarProduk
+      ) {
+        //buat elemen notifikasi/popup
+
+        const popup = document.createElement("div");
+
+        popup.className = "popup";
+
+        popup.innerHTML = `
+            <div class="popup-content">
+                <span class="popup-close" onclick="tutupPopup()">&times;</span>
+                <img src="${gambarProduk}" alt+"${namaProduk}">
+                <h2>${namaProduk}</h2>
+                <p class="price">Harga: ${hargaProduk}</p>
+                <p>${detailProduk}</p>
+                <button class="tombol-beli" onclick="tambahkanProdukKeKeranjang(namaProduk, hargaProduk)">Beli Sekarang</button>
+                </div> `;
+
+        document.body.appendChild(popup);
+      }
+
+      function tutupPopup() {
+        const popup = document.querySelector(".popup");
+        if (popup) {
+          document.body.removeChild(popup);
+        }
+      }
+
+      function filterKategori(kategori) {
+        const produk = document.querySelectorAll(".product");
+        for (const produkItem of produk) {
+          const kategoriProduk = produkItem.getAttribute("data-kategori");
+          if (kategori === "all" || kategori === kategoriProduk) {
+            produkItem.style.display = "block";
+          } else {
+            produkItem.style.display = "none";
+          }
+        }
+      }
+
+      function cariBarang() {
+        const inputPencarian = document.getElementById("cariBarang");
+        const kataKunci = inputPencarian.value.toLowerCase();
+        const produk = document.querySelectorAll(".product");
+
+        for (const produkItem of produk) {
+          const namaProduk = produkItem
+            .querySelector("h3")
+            .textContent.toLowerCase();
+          const deskripsiProduk = produkItem
+            .querySelector("p")
+            .textContent.toLowerCase();
+
+          if (
+            namaProduk.includes(kataKunci) ||
+            deskripsiProduk.includes(kataKunci)
+          ) {
+            produkItem.style.display = "block";
+          } else {
+            produkItem.style.display = "none";
+          }
+        }
+      }
+
+      const keranjang = [];
+      const totalBelanja = 0;
+
+      function tambahkanProdukKeKeranjang(namaProduk, harga) {
+        let produkDiTemukan = false;
+
+        for (let i = 0; i < keranjang.length; i++) {
+          if (keranjang[i].nama === namaProduk) {
+            keranjang[i].jumlah++;
+            produkDiTemukan = true;
+            break;
+          }
+        }
+        if (!produkDiTemukan) {
+          keranjang.push({ nama: namaProduk, harga: harga, jumlah: 1 });
+        }
+        updateKeranjang();
+      }
+
+      function updateKeranjang() {
+        const daftarKeranjang = document.getElementById("daftar-keranjang");
+        const totalBelanjaElem = document.getElementById("total-belanja");
+
+        daftarKeranjang.innerHTML = "";
+        let total = 0;
+
+        keranjang.forEach((produk) => {
+          const item = document.createElement("li");
+          const jum = produk.jumlah * produk.harga;
+          item.innerHTML = `<p class="namaP">${produk.nama}</p>
+                 <p class="jumlahP">${produk.jumlah}</p>
+                 <p class="hargaP">Rp ${produk.harga.toLocaleString(
+                   "id-ID"
+                 )}</p>
+                 <p class="jumlahHargaP">Rp ${jum.toLocaleString("id-ID")}</p>`;
+
+          daftarKeranjang.appendChild(item);
+          total += produk.jumlah * produk.harga;
+        });
+        totalBelanjaElem.textContent = `Rp${total.toLocaleString("id-ID")}`;
+
+        sessionStorage.setItem("keranjangBelanja", JSON.stringify(keranjang));
+      }
+
+      function checkout() {
+        window.location.href = "checkout.html";
+      }
+    </script>
+  </body>
+</html>
